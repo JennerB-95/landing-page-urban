@@ -30,7 +30,7 @@
                     <tbody>
                       <tr
                         v-for="item in desserts"
-                        :key="item.name"
+                        :key="item.no"
                       >
                         <td>{{ item.no }}</td>
                         <td>{{ item.name }}</td>
@@ -76,7 +76,7 @@
                     <tbody>
                       <tr
                         v-for="item in tasas"
-                        :key="item.name"
+                        :key="item.no"
                       >
                         <td>{{ item.no }}</td>
                         <td>{{ item.name }}</td>

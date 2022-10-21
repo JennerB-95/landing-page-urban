@@ -24,8 +24,9 @@
                 <v-text-field
                     color="#00911A"
                     v-model="name"
+                    ref="myfield"
                     :rules="nameRules"
-                    label="DPI"
+                    label="Código de Arrendamiento"
                     required
                 ></v-text-field>
                 <v-btn
@@ -279,7 +280,7 @@ export default {
       valid: true,
       name: "",
       nameRules: [
-        (v) => !!v || "DPI es requerido",
+        (v) => !!v || "Código de arrendamiento es requerido",
         (v) => (v && v.length == 13) || "Ingrese un registro de 13 números",
       ],
       lazy: false,
@@ -306,8 +307,12 @@ export default {
         if (!val) return 
         setTimeout(() => (this.dialog = false), 4000)
       },
-    },
-
+  },
+  mounted () {
+    const inputElement = this.$refs.myfield.$el.querySelector('input')
+    inputElement.min = 10
+    inputElement.max = 13
+  },
   methods: {
     submit() {
       console.log(this.name);

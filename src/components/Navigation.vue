@@ -10,7 +10,7 @@
       <v-list>
         <v-list-item>
           <v-list-item-avatar>
-            <img src="@/assets/img/logo.jpeg" alt="Logo" />
+            <img src="@/assets/img/logo.png" alt="Logo" />
           </v-list-item-avatar>
           <v-list-item-content>
             <v-list-item-title class="title">URBAN</v-list-item-title>
@@ -49,7 +49,7 @@
       :class="{ expand: flat }"
     >
       <v-toolbar-title>
-        <v-img src="@/assets/img/logo.jpeg" max-width="50px" />
+        <v-img src="@/assets/img/logo.png" max-width="50px" />
       </v-toolbar-title>
       <v-spacer />
       <v-app-bar-nav-icon

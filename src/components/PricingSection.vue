@@ -105,18 +105,7 @@
             <v-list-item-subtitle> <div class="subtitle-1">{{vecinoApellido}}</div> </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item> 
-      </div>
-      <div v-else class="ma-4">
-        <v-alert
-          icon="mdi-account-details"
-          prominent
-          text
-          type="info"
-        >
-        Información no encontrada
-        </v-alert>
-      </div>
-      <div class="">
+        <div class="">
         <v-expansion-panels focusable flat>
           <v-expansion-panel>
             <v-expansion-panel-header>
@@ -248,6 +237,19 @@
           ¡Ya cuenta con derecho de llave!
         </v-alert>
       </div>  
+
+      </div>
+      <div v-else class="ma-4">
+        <v-alert
+          icon="mdi-account-details"
+          prominent
+          text
+          type="info"
+        >
+        Información no encontrada
+        </v-alert>
+      </div>
+ 
       <v-divider></v-divider> 
         <v-card-actions>
           <v-spacer></v-spacer>
@@ -308,26 +310,21 @@ export default {
         setTimeout(() => (this.dialog = false), 4000)
       },
   },
-  mounted () {
-    const inputElement = this.$refs.myfield.$el.querySelector('input')
-    inputElement.min = 10
-    inputElement.max = 13
-  },
   methods: {
     submit() {
       console.log(this.name);
       this.dialog = true
       axios.get(`${API}core/custom-n/?dpi=${this.name}`).then((r)=>{
         this.dataVecino = r.data; 
-        this.vecinoName = this.dataVecino[0].names;
-        this.vecinoApellido = this.dataVecino[0].surnames; 
-        this.leasesVecino = r.data[0].leases;
-        this.paymentsVecino = r.data[0].payments;
-        this.rightKeysVecino = r.data[0].payments; 
-        console.log(r.data, "data");    
-        console.log(this.leasesVecino, "arre");
-        console.log(this.paymentsVecino, "pagos");
-        console.log(this.rightKeysVecino, "llaves");
+        console.log(this.dataVecino, "data");    
+        if (this.dataVecino.length > 0) {
+          this.vecinoName = this.dataVecino[0].names;
+          this.vecinoApellido = this.dataVecino[0].surnames; 
+          this.leasesVecino = r.data[0].leases;
+          this.paymentsVecino = r.data[0].payments;
+          this.rightKeysVecino = r.data[0].payments;           
+        }
+
 
         setTimeout(() => (this.dialog2 = true), 5000)
       })

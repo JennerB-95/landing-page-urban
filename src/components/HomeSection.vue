@@ -121,6 +121,12 @@
                     
                     <li> <h4 class="font-weight-regular subtitle-1">
                     Disciplina en el desempeño del trabajo                  
+                  </h4> </li>
+                  <li> <h4 class="font-weight-regular subtitle-1">
+                    Trabajo en equipo                  
+                  </h4> </li>
+                  <li> <h4 class="font-weight-regular subtitle-1">
+                    Responsabilidad en el trabajo                  
                   </h4> </li><br/>
                   </ul>
                 </v-card>
